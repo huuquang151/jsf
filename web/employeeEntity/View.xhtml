@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEmployeeEntityTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEmployeeEntityLabel_id}"/>
+                    <h:outputText value="#{employeeEntityController.selected.id}" title="#{bundle.ViewEmployeeEntityTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeEntityLabel_name}"/>
+                    <h:outputText value="#{employeeEntityController.selected.name}" title="#{bundle.ViewEmployeeEntityTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeEntityLabel_password}"/>
+                    <h:outputText value="#{employeeEntityController.selected.password}" title="#{bundle.ViewEmployeeEntityTitle_password}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeEntityLabel_address}"/>
+                    <h:outputText value="#{employeeEntityController.selected.address}" title="#{bundle.ViewEmployeeEntityTitle_address}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeEntityLabel_tel}"/>
+                    <h:outputText value="#{employeeEntityController.selected.tel}" title="#{bundle.ViewEmployeeEntityTitle_tel}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{employeeEntityController.destroyAndView}" value="#{bundle.ViewEmployeeEntityDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEmployeeEntityEditLink}"/>
+                <br />
+                <h:commandLink action="#{employeeEntityController.prepareCreate}" value="#{bundle.ViewEmployeeEntityCreateLink}" />
+                <br />
+                <h:commandLink action="#{employeeEntityController.prepareList}" value="#{bundle.ViewEmployeeEntityShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEmployeeEntityIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
